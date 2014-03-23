@@ -1,0 +1,43 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include _head.html %}
+</head>
+
+<body class="home">
+
+{% include _browser-upgrade.html %}
+
+{% include _navigation.html %}
+
+
+<div id="main">
+<div class="article-author-side">
+  {% include _author-bio.html %}
+</div>
+
+<div id="index">
+  <div class="headline-wrap">
+  <h1>Posts</h1>
+</div>
+  <ul class="posts">
+  {% for post in site.posts %}    
+    <li> <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>  
+  {% endfor %}
+</ul>
+</div><!-- /#index -->
+</div>
+
+<div class="footer-wrap">
+  <footer>
+    {% include _footer.html %}
+  </footer>
+</div><!-- /.footer-wrap -->
+
+{% include _scripts.html %}
+  
+</body>
+</html>
