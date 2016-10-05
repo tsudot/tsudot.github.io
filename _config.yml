@@ -2,14 +2,14 @@ title:            Yet Another Attempt At Blogging
 description:      Writings from Kunal Kerkar who goes by the name tsudot.
 # Your site's domain goes here. Leave localhost server or blank when working locally.
 
-url: https://tsudot.com
-enforce_ssl: tsudot.com
+url: http://tsudot.com
+#enforce_ssl: tsudot.com
 
 # Owner/author information
 owner:
   name:           Kunal Kerkar
   avatar:         bio-photo.jpg
-  bio:            "I throw caution to the wind, dance terribly, live in San Francisco, believe in cynical kinda love and spend time watching the moonlit sky!"
+  bio:            "I throw caution to the wind, dance terribly, live in Delhi, believe in cynical kinda love and spend time watching the moonlit sky!"
   email:          me@tsudot.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter:        tsudot
