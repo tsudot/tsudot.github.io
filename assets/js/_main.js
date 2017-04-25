@@ -64,4 +64,5 @@ $(document).ready(function() {
     // make it unique to apply your CSS animations just to this exact popup
     mainClass: 'mfp-fade'
   });
+    document.getElementById("year").innerHTML = new Date().getFullYear();
 });
