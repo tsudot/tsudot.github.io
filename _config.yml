@@ -9,7 +9,7 @@ url: http://tsudot.com
 owner:
   name:           Kunal Kerkar
   avatar:         bio-photo.jpg
-  bio:            "I throw caution to the wind, dance terribly, live in Delhi, believe in cynical kinda love and spend time watching the moonlit sky!"
+  bio:            "I throw caution to the wind, dance terribly, live in Bangalore, believe in cynical kinda love and spend time watching the moonlit sky!"
   email:          me@tsudot.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter:        tsudot
@@ -25,7 +25,6 @@ owner:
   steam: 
   dribbble: 
   # For Google Authorship https://plus.google.com/authorship
-  google_plus: KunalKerkar1
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-32406793-1
