@@ -4,6 +4,7 @@ title: Kubernetes at Work
 location: Bangalore
 ---
 
+Original Post: https://blog.karix.io/how-we-build-and-run-karix.io
 
 This post describes how we run and manage karix.io on kubernetes, using helm for packaging and jenkins for CI/CD 
 Summary
