@@ -34,7 +34,9 @@ With these requirements established, we choose Jenkins. I think Jenkins is the m
 So we came up with a golden rule in our team. Every code component on our platform has to have these 3 files.
 
 - Dockerfile
+
 - Makefile
+
 - Jenkinsfile
 
 We also have a folder called charts which is checked-in with the code. I’ll come back to this later in the post.
@@ -55,7 +57,7 @@ We use semver to create release tags to trigger builds. Patch versions will get 
 
 Our build is split into different stages, this helps us debug build failures better.
 
-![Jenkins Stages](images/posts/stages.png)
+![Jenkins Stages](/images/posts/stages.png)
 
 The first stage is to fetch dependent images, so for tungsten, which is a golang project, we will fetch the base golang image.
 
@@ -65,13 +67,13 @@ The third stage is to test the image. If test cases pass, we will push the image
 
 # Packaging
 
-![Packaging](images/posts/packaging.jpg)
+![Packaging](/images/posts/packaging.jpg)
 
 Currently we create builds for 2 environments, staging and production. The Jenkinsfile uses the charts folder to build a helm package. The charts folder has templates which will spew out kubernetes object configurations.
 
 This is what the charts folder looks like. The templates folder contains different set of files to generate a deployment, service and a configmap.
 
-![Charts Component](images/posts/charts_component.png)
+![Charts Component](/images/posts/charts_component.png)
 
 Let’s start with the k8s Configmap template. The config file mounted to the docker image varies based on the environment we are building for. Currently we store all config files in the repository itself, since it is easy to manage. We need a better plan to handle this though, since scaling to multiple environments is not feasible with this approach. The configmap is given a name which is the release name. It has data files, the location of these files are specified in the values.yml (the files are checked in to the repository) and these files will eventually be mounted to the container through the Configmap in the Deployment object.
 
