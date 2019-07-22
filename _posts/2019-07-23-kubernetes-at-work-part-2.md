@@ -43,7 +43,7 @@ We also have a folder called charts which is checked-in with the code. I’ll co
 
 We’ll look at these files from our internal service called tungsten. Tungsten is responsible for fetching routes for our communication channels. It is also one of the main layers of our messaging architecture.
 
-![Tungsten Code](images/posts/code_component.png)
+![Tungsten Code](/images/posts/code_component.png)
 
 The Dockerfile specifies how to build the container. This is mostly generic across projects of a particular language. One pro-tip: If you are using containers in production, always build the base image yourself. Using public base images puts you at a high security risk.
 
@@ -57,7 +57,9 @@ We use semver to create release tags to trigger builds. Patch versions will get 
 
 Our build is split into different stages, this helps us debug build failures better.
 
-![Jenkins Stages](/images/posts/stages.png)
+<p align="center" style="margin: 10px;">
+  <img width="460" height="300" src="/images/posts/stages.png">
+</p>
 
 The first stage is to fetch dependent images, so for tungsten, which is a golang project, we will fetch the base golang image.
 
