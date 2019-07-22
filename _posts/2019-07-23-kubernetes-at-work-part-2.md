@@ -43,7 +43,9 @@ We also have a folder called charts which is checked-in with the code. I’ll co
 
 We’ll look at these files from our internal service called tungsten. Tungsten is responsible for fetching routes for our communication channels. It is also one of the main layers of our messaging architecture.
 
-![Tungsten Code](/images/posts/code_component.png)
+<p align="center" style="margin: 20px;">
+  <img width="460" height="300" src="/images/posts/code_component.png">
+</p>
 
 The Dockerfile specifies how to build the container. This is mostly generic across projects of a particular language. One pro-tip: If you are using containers in production, always build the base image yourself. Using public base images puts you at a high security risk.
 
@@ -57,7 +59,7 @@ We use semver to create release tags to trigger builds. Patch versions will get 
 
 Our build is split into different stages, this helps us debug build failures better.
 
-<p align="center" style="margin: 10px;">
+<p align="center" style="margin: 20px;">
   <img width="460" height="300" src="/images/posts/stages.png">
 </p>
 
@@ -69,13 +71,17 @@ The third stage is to test the image. If test cases pass, we will push the image
 
 # Packaging
 
-![Packaging](/images/posts/packaging.jpg)
+<p align="center" style="margin: 20px;">
+  <img width="460" height="300" src="/images/posts/packaging.jpg">
+</p>
 
 Currently we create builds for 2 environments, staging and production. The Jenkinsfile uses the charts folder to build a helm package. The charts folder has templates which will spew out kubernetes object configurations.
 
 This is what the charts folder looks like. The templates folder contains different set of files to generate a deployment, service and a configmap.
 
-![Charts Component](/images/posts/charts_component.png)
+<p align="center" style="margin: 20px;">
+  <img width="460" height="300" src="/images/posts/charts_component.png">
+</p>
 
 Let’s start with the k8s Configmap template. The config file mounted to the docker image varies based on the environment we are building for. Currently we store all config files in the repository itself, since it is easy to manage. We need a better plan to handle this though, since scaling to multiple environments is not feasible with this approach. The configmap is given a name which is the release name. It has data files, the location of these files are specified in the values.yml (the files are checked in to the repository) and these files will eventually be mounted to the container through the Configmap in the Deployment object.
 
