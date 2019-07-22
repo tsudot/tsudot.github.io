@@ -29,6 +29,7 @@ In the event a build fails, a developer should be able to debug the build and fi
 
 Builds need to be immutable. What I mean by this is when a release gets tagged, new changes in code cannot be pushed using the same tag. Having your release tags and builds immutable, lets you get your cluster in the state you wish to have it in at any point in time.
 
+
 With these requirements established, we choose Jenkins. I think Jenkins is the most versatile tool out there and can be shaped based on your needs. Pipeline provides an extensible set of tools for modeling delivery pipelines "as code" via the Pipeline DSL. This means that your code is now shipped with instructions on how it is supposed to be built. And this turns the whole concept and ideas behind dev-ops into reality. Your developers are able to define how a particular service will be built, how to run test cases, where to find config files for an environment and how to package it for deployment. It enables your developers to make these decisions as part of their code.
 
 So we came up with a golden rule in our team. Every code component on our platform has to have these 3 files.
@@ -43,8 +44,8 @@ We also have a folder called charts which is checked-in with the code. I’ll co
 
 We’ll look at these files from our internal service called tungsten. Tungsten is responsible for fetching routes for our communication channels. It is also one of the main layers of our messaging architecture.
 
-<p align="center" style="margin: 20px;">
-  <img width="460" height="300" src="/images/posts/code_component.png">
+<p align="center" style="margin: 20px 20px 20px 20px">
+  <img src="/images/posts/code_component.png">
 </p>
 
 The Dockerfile specifies how to build the container. This is mostly generic across projects of a particular language. One pro-tip: If you are using containers in production, always build the base image yourself. Using public base images puts you at a high security risk.
@@ -59,8 +60,8 @@ We use semver to create release tags to trigger builds. Patch versions will get 
 
 Our build is split into different stages, this helps us debug build failures better.
 
-<p align="center" style="margin: 20px;">
-  <img width="460" height="300" src="/images/posts/stages.png">
+<p align="center" style="margin: 20px 20px 20px 20px;">
+  <img src="/images/posts/stages.png">
 </p>
 
 The first stage is to fetch dependent images, so for tungsten, which is a golang project, we will fetch the base golang image.
@@ -71,16 +72,16 @@ The third stage is to test the image. If test cases pass, we will push the image
 
 # Packaging
 
-<p align="center" style="margin: 20px;">
-  <img width="460" height="300" src="/images/posts/packaging.jpg">
+<p align="center" style="margin: 20px 20px 20px 20px;">
+  <img src="/images/posts/packaging.jpg">
 </p>
 
 Currently we create builds for 2 environments, staging and production. The Jenkinsfile uses the charts folder to build a helm package. The charts folder has templates which will spew out kubernetes object configurations.
 
 This is what the charts folder looks like. The templates folder contains different set of files to generate a deployment, service and a configmap.
 
-<p align="center" style="margin: 20px;">
-  <img width="460" height="300" src="/images/posts/charts_component.png">
+<p align="center" style="margin: 20px 20px 20px 20px;">
+  <img src="/images/posts/charts_component.png">
 </p>
 
 Let’s start with the k8s Configmap template. The config file mounted to the docker image varies based on the environment we are building for. Currently we store all config files in the repository itself, since it is easy to manage. We need a better plan to handle this though, since scaling to multiple environments is not feasible with this approach. The configmap is given a name which is the release name. It has data files, the location of these files are specified in the values.yml (the files are checked in to the repository) and these files will eventually be mounted to the container through the Configmap in the Deployment object.
@@ -96,5 +97,7 @@ All of these files are generated based on the values we pass into it in the form
 Once we have all of these object specs generated, we will use helm to package these files into a tgz for deployment on the cluster.
 
 This tar get pushed to our chart repository as a versioned unit. We use [chartmuseum](https://github.com/helm/chartmuseum) as our chart repository.
+
+---
 
 Follow up posts in this series will describe how we use helm for packaging kubernetes components, our emphasis on the importance of testing, our tooling for releases/deployments and our take on best practices like monitoring, alerting etc along with future goals. Thanks for reading and stay tuned!
