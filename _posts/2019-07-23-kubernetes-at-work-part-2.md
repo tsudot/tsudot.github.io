@@ -44,7 +44,7 @@ We also have a folder called charts which is checked-in with the code. I’ll co
 
 We’ll look at these files from our internal service called tungsten. Tungsten is responsible for fetching routes for our communication channels. It is also one of the main layers of our messaging architecture.
 
-<p align="center" style="margin: 20px 20px 20px 20px">
+<p align="center" style="margin: 20px 20px 40px 20px">
   <img src="/images/posts/code_component.png">
 </p>
 
@@ -60,7 +60,7 @@ We use semver to create release tags to trigger builds. Patch versions will get 
 
 Our build is split into different stages, this helps us debug build failures better.
 
-<p align="center" style="margin: 20px 20px 20px 20px;">
+<p align="center" style="margin: 20px 20px 40px 20px">
   <img src="/images/posts/stages.png">
 </p>
 
@@ -72,7 +72,7 @@ The third stage is to test the image. If test cases pass, we will push the image
 
 # Packaging
 
-<p align="center" style="margin: 20px 20px 20px 20px;">
+<p align="center" style="margin: 20px 20px 40px 20px">
   <img src="/images/posts/packaging.jpg">
 </p>
 
@@ -80,7 +80,7 @@ Currently we create builds for 2 environments, staging and production. The Jenki
 
 This is what the charts folder looks like. The templates folder contains different set of files to generate a deployment, service and a configmap.
 
-<p align="center" style="margin: 20px 20px 20px 20px;">
+<p align="center" style="margin: 20px 20px 40px 20px">
   <img src="/images/posts/charts_component.png">
 </p>
 
