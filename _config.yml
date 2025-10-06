@@ -41,7 +41,6 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone: America/Los_Angeles
 future: true
-# pygments:    false
 markdown: kramdown
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
@@ -52,14 +51,13 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
-
-  coderay:
-    coderay_line_numbers:
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: plaintext
+    css_class: 'highlight'
+    block:
+      line_numbers: false
+      start_line: 1
 
 include: [".htaccess"]
 exclude:
