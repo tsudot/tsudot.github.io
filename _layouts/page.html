@@ -1,37 +1,32 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 <head>
-{% include _head.html %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include _head.html %}
 </head>
 
 <body class="page">
-
-{% include _browser-upgrade.html %}
-
 {% include _navigation.html %}
 
-<div id="main" role="main">
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
-  <article>
-    <h1>{{ page.title }}</h1>
-    <div class="article-wrap">
-      {{ content }}
-    </div><!-- /.article-wrap -->
-  </article>
-</div><!-- /#index -->
+<main id="main">
+    <aside class="article-author-side">
+        {% include _author-bio.html %}
+    </aside>
+    <article>
+        <h1>{{ page.title }}</h1>
+        <div class="article-wrap">
+            {{ content }}
+        </div>
+    </article>
+</main>
 
 <div class="footer-wrap">
-  <footer>
-    {% include _footer.html %}
-  </footer>
-</div><!-- /.footer-wrap -->
+    <footer>
+        {% include _footer.html %}
+    </footer>
+</div>
 
-{% include _scripts.html %}          
-
+{% include _scripts.html %}
 </body>
 </html>
