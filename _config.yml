@@ -13,21 +13,12 @@ owner:
   email: me@tsudot.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter: tsudot
-  facebook:
   github: tsudot
   stackoverflow: 360066/tsudot
-  linkedin:
-  instagram:
-  lastfm:
-  tumblr:
-  pinterest:
-  foursquare:
-  steam:
-  dribbble:
-  # For Google Authorship https://plus.google.com/authorship
+  linkedin: tsudot
 
 # Analytics and webmaster tools stuff goes here
-google_analytics: UA-32406793-1
+google_analytics: G-0DCE1MHPDB
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
