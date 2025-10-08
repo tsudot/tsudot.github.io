@@ -9,7 +9,7 @@ url: https://tsudot.com
 owner:
   name: Kunal Kerkar
   avatar: bio-photo.jpg
-  bio: "I throw caution to the wind, dance terribly, live in Vacouver, believe in cynical kinda love and spend time watching the moonlit sky!"
+  bio: "Software consultant specializing in distributed systems, observability, and cloud architecture since 2011. I transform complex technical challenges into scalable solutions that drive business growth."
   email: me@tsudot.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter: tsudot
@@ -54,7 +54,7 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     default_lang: plaintext
-    css_class: 'highlight'
+    css_class: "highlight"
     block:
       line_numbers: false
       start_line: 1

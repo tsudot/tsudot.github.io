@@ -4,29 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include _head.html %}
+    <style>
+        /* Fix for paragraph alignment issues */
+        .article-wrap p {
+            text-indent: 0 !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            margin-bottom: 2.5em !important;
+        }
+    </style>
 </head>
 
 <body class="page">
-{% include _navigation.html %}
+    {% include _navigation.html %}
 
-<main id="main">
-    <aside class="article-author-side">
-        {% include _author-bio.html %}
-    </aside>
-    <article>
-        <h1>{{ page.title }}</h1>
-        <div class="article-wrap">
-            {{ content }}
-        </div>
-    </article>
-</main>
+    <main id="main">
+        <aside class="article-author-side">
+            {% include _author-bio.html %}
+        </aside>
+        <article>
+            <h1>{{ page.title }}</h1>
+            <div class="article-wrap">
+                {{ content }}
+            </div><!-- /.article-wrap -->
+        </article>
+    </main><!-- /#main -->
 
-<div class="footer-wrap">
-    <footer>
-        {% include _footer.html %}
-    </footer>
-</div>
+    <div class="footer-wrap">
+        <footer>
+            {% include _footer.html %}
+        </footer>
+    </div><!-- /.footer-wrap -->
 
-{% include _scripts.html %}
+    {% include _scripts.html %}
 </body>
 </html>
